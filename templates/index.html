@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube 轉 MP3 下載器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🎵 YouTube 轉 MP3 下載器 🎵</h2>
+    <form action="/download" method="POST">
+        <input type="text" name="url" placeholder="請輸入 YouTube 影片網址" required>
+        <button type="submit">下載 MP3</button>
+    </form>
+
+    {% if download_link %}
+        <h3>✅ 下載成功！</h3>
+        <a href="{{ url_for('serve_file', filename=download_link) }}" download>
+            <button>點擊下載 MP3</button>
+        </a>
+    {% endif %}
+</body>
+</html>
