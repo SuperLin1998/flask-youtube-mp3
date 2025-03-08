@@ -28,6 +28,7 @@ def download():
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
+        'cookiefile': os.path.join(os.getcwd(), 'cookies.txt'),  # 取得 cookies.txt 的完整路徑
     }
 
     # 執行下載
